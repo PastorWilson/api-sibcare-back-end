@@ -1,18 +1,19 @@
 import express from "express"
 import cors from "cors"
 import mysql from "mysql";
+import dontenv from "dotenv/config"
 
 const db = mysql.createConnection({
-  host: "localhost",
-  user: "root",
-  database: "sibcare",
-  password: "",
-  port: 3306,
+  host: process.env.MYSQL_HOST,
+  user: process.env.MYSQL_USER,
+  database: process.env.MYSQL_DATABASE,
+  password: process.env.MYSQL_PASSWORD,
+  port: process.env.MYSQL_PORT,
 });
 
 
 const app = express()
-const port = 3000
+const port = process.env.PORT
 
 app.use(cors())
 app.use(express.json())
@@ -59,7 +60,9 @@ app.get("/api/aparelhos/:id",(req,res)=>{
           return res.status(200).json(data) 
   })
 })
-
+app.get("/",(res,req)=>{
+  alert("Ola mundo")
+})
 
 
 app.listen(port,()=>{
