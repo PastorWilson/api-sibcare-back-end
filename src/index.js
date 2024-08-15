@@ -60,9 +60,6 @@ app.get("/api/aparelhos/:id",(req,res)=>{
           return res.status(200).json(data) 
   })
 })
-app.get("/",(res,req)=>{
-  alert("Ola mundo")
-})
 
 
 app.listen(port,()=>{
