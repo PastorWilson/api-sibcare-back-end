@@ -14,7 +14,7 @@ const db = mysql.createConnection({
 
 const app = express()
 const port = process.env.PORT
-
+  
 app.use(cors())
 app.use(express.json())
 
@@ -60,6 +60,10 @@ app.get("/api/aparelhos/:id",(req,res)=>{
           return res.status(200).json(data) 
   })
 })
+app.get("/",(res,req)=>{
+  alert("Ola mundo")
+})
+
 
 app.listen(port,()=>{
 
